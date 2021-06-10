@@ -11,7 +11,7 @@ export default function useGifs() {
         setLoading(true)
         getGifs({page}).then(resp => {
             const { data } = resp;
-            setGifs(prevGifs => [...prevGifs, ...data]);
+            setGifs(prevGifs => [...prevGifs, ...data].map((gif, index) => ({...gif, id : index }) ));
             setLoading(false)
         })
     },[ page ])
