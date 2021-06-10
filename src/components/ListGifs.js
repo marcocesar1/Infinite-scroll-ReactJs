@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useEffect } from 'react';
+import React, { useRef, useCallback } from 'react';
 import Gif from './Gif'
 import Loader from '../components/Loader'
 import useGifs from '../hooks/useGifs';
@@ -9,11 +9,6 @@ export default function ListGifs() {
     const gifRef = useRef();
 
     const { gifs, loading, setPage } = useGifs();
-
-
-    useEffect(() => {
-        console.log(loading)
-    },[loading])
 
     const lastGifRef = useCallback(node => {
         if(loading) return
